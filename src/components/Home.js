@@ -5,13 +5,14 @@ import {POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL} from '../config';
 import HeroImage from './HeroImage';
 import Grid from './Grid';
 import Thumb from './Thumb';
-import Spinner from './Spinner';
+import {ProgressSpinner} from 'primereact/progressspinner';
 import SearchBar from './SearchBar'
 import Button from './Button';
 
 import {useHomeFetch} from '../hooks/useHomeFetch';
 
 import NoImage from '../images/no_image.jpg';
+
 
 const Home = () => {
     const {state, loading, error, searchTerm, setSearchTerm, setIsLoadingMore} = useHomeFetch();
@@ -43,7 +44,7 @@ const Home = () => {
                         movieId={movie.id}
                     />))}
             </Grid>
-            {loading && <Spinner/>}
+            {loading && <ProgressSpinner className='flex justify-content-center' />}
             {state.page < state.total_pages && !loading && (
                 <Button text='Load More' callback={() => setIsLoadingMore(true)} />)}
         </>

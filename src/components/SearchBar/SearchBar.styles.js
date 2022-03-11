@@ -29,16 +29,13 @@ export const Content = styled.div`
     font-size: 28px;
     position: absolute;
     left: 0;
-    margin: 8px 0;
+    margin: 8px 12px;
     padding: 0 0 0 60px;
     border: 0;
-    width: 95%;
+    width: 98%;
     background: transparent;
     height: 40px;
     color: var(--white);
-
-    :focus {
-      outline: none;
-    }
+    outline: none;
   }
 `;

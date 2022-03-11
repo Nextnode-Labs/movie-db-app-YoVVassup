@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-
+import PropTypes from 'prop-types';
 import searchIcon from '../../images/search-icon.svg';
+import { InputText } from 'primereact/inputtext';
+
 
 import { Wrapper, Content } from './SearchBar.styles';
 
@@ -25,15 +27,18 @@ const SearchBar = ({ setSearchTerm }) => {
         <Wrapper>
             <Content>
                 <img src={searchIcon} alt='search-icon' />
-                <input
-                    type='text'
-                    placeholder='Search Movie'
-                    onChange={event => setState(event.currentTarget.value)}
-                    value={state}
-                />
+                    <InputText value={state}
+                               onChange={(event) => setState(event.currentTarget.value)}
+                               placeholder='Search Movie'
+                               keyfilter={/^[^#<>*!+=&]+$/}
+                    />
             </Content>
         </Wrapper>
     );
+};
+
+SearchBar.propTypes = {
+    callback: PropTypes.func
 };
 
 export default SearchBar;

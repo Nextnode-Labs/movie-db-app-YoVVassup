@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../config';
 import BreadCrumb from './BreadCrumb';
 import Grid from './Grid';
-import Spinner from './Spinner';
+import {ProgressSpinner} from 'primereact/progressspinner';
 import MovieInfo from './MovieInfo';
 import MovieInfoBar from './MovieInfoBar';
 import Actor from './Actor';
@@ -15,7 +15,7 @@ const Movie = () => {
 
     const { state: movie, loading, error } = useMovieFetch(movieId);
 
-    if (loading) return <Spinner />;
+    if (loading) return <ProgressSpinner className='flex justify-content-center' />;
     if (error) return <div>Something went wrong...</div>;
 
     return (
